@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace odev3.Models.Product
 {
     public class ProductViewModel : IProductModel
