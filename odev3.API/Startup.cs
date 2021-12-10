@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using odev3.API.Infrastructure;
+using odev3.Service.Product;
 using odev3.Service.User;
 
 namespace odev3.API
@@ -34,6 +35,7 @@ namespace odev3.API
             services.AddSingleton(mapper);
 
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IProductService, ProductService>();
 
 
             services.AddControllers();
