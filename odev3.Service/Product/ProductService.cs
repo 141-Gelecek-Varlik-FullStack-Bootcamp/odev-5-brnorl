@@ -37,10 +37,46 @@ namespace odev3.Service.Product
                 var data = srv.Products.Where(
                     p => p.IsActive && !p.IsDeleted).OrderBy(p => p.Id);
                 result.productList = mapper.Map<List<ProductViewModel>>(data);
-
             }
             return result;
         }
+        public bool Update(UpdateProductModel updatedProduct, int id)
+        {
+            bool result = false;
+            using (var srv = new ProjeContext())
+            {
+                var data = srv.Products.SingleOrDefault(p => p.Id == id);
+                if (data is null)
+                {
+                    return result;
+                }
+                data.Name = updatedProduct.Name != default ? updatedProduct.Name : data.Name;
+                data.DisplayName = updatedProduct.DisplayName != default ? updatedProduct.DisplayName : data.DisplayName;
+                data.Price = updatedProduct.Price != default ? updatedProduct.Price : data.Price;
+
+                srv.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
+        public bool Delete(int id)
+        {
+            bool result = false;
+            using (var srv = new ProjeContext())
+            {
+                var data = srv.Products.SingleOrDefault(p => p.Id == id);
+                if (data is null)
+                {
+                    return result;
+                }
+                srv.Products.SingleOrDefault(p => p.Id == id).IsDeleted = true;
+                srv.Products.SingleOrDefault(p => p.Id == id).IsActive = false;
+                srv.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
+
 
 
     }

@@ -35,6 +35,22 @@ namespace odev3.API.Controllers
             result = productService.Insert(data);
             return result;
         }
+        [HttpPut]
+        [Route("updateProduct")]
+        public bool UpdateProduct([FromBody] UpdateProductModel updatedProduct, int id)
+        {
+
+            return productService.Update(updatedProduct, id);
+        }
+
+        [HttpDelete]
+        [Route("deleteProduct")]
+        public bool DeleteProduct(int id)
+        {
+            return productService.Delete(id);
+        }
+
+
 
     }
 }

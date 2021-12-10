@@ -28,6 +28,9 @@ namespace odev3.API.Infrastructure
             //GET
             CreateMap<Product, ProductViewModel>();
             CreateMap<ProductViewModel, Product>();
+            //UPDATE
+            CreateMap<Product, UpdateProductModel>();
+            CreateMap<UpdateProductModel, Product>();
 
 
 
