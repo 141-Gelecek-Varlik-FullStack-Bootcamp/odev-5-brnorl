@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.AssemblyInfo.cs
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\bootcamp3\odev3.Models\bin\Debug\net5.0\odev3.Models.deps.json
+C:\Users\user\Desktop\bootcamp3\odev3.Models\bin\Debug\net5.0\odev3.Models.dll
+C:\Users\user\Desktop\bootcamp3\odev3.Models\bin\Debug\net5.0\ref\odev3.Models.dll
+C:\Users\user\Desktop\bootcamp3\odev3.Models\bin\Debug\net5.0\odev3.Models.pdb
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.dll
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\ref\odev3.Models.dll
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.pdb
+C:\Users\user\Desktop\bootcamp3\odev3.Models\bin\Debug\net5.0\odev3.DB.dll
+C:\Users\user\Desktop\bootcamp3\odev3.Models\bin\Debug\net5.0\odev3.DB.pdb
+C:\Users\user\Desktop\bootcamp3\odev3.Models\obj\Debug\net5.0\odev3.Models.csproj.CopyComplete

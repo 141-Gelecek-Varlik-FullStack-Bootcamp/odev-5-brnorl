@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\odev3.Models\odev3.Models.csproj" />
+    <ProjectReference Include="..\odev3.DB\odev3.DB.csproj" />
+  </ItemGroup>
+
+</Project>
