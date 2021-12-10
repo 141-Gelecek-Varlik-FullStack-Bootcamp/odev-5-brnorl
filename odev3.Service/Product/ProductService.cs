@@ -69,6 +69,7 @@ namespace odev3.Service.Product
                 {
                     return result;
                 }
+                //DB'den silinmez, silindi olarak işaretlenir
                 srv.Products.SingleOrDefault(p => p.Id == id).IsDeleted = true;
                 srv.Products.SingleOrDefault(p => p.Id == id).IsActive = false;
                 srv.SaveChanges();
@@ -76,8 +77,5 @@ namespace odev3.Service.Product
             }
             return result;
         }
-
-
-
     }
 }

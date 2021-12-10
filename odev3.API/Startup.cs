@@ -32,8 +32,10 @@ namespace odev3.API
         {
             var _mappingProfile = new MapperConfiguration(mp => { mp.AddProfile(new MappingProfile()); });
             IMapper mapper = _mappingProfile.CreateMapper();
+            //AutoMapper added.
             services.AddSingleton(mapper);
 
+            //Services Added.
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProductService, ProductService>();
 

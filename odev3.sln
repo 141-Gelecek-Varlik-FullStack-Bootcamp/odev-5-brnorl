@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "odev3.Models", "odev3.Model
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "odev3.Service", "odev3.Service\odev3.Service.csproj", "{0E67D4D4-9F06-46F2-9CAB-034411C8D394}"
 EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +73,17 @@ Global
 		{0E67D4D4-9F06-46F2-9CAB-034411C8D394}.Release|x64.Build.0 = Release|Any CPU
 		{0E67D4D4-9F06-46F2-9CAB-034411C8D394}.Release|x86.ActiveCfg = Release|Any CPU
 		{0E67D4D4-9F06-46F2-9CAB-034411C8D394}.Release|x86.Build.0 = Release|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Debug|x64.Build.0 = Debug|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Debug|x86.Build.0 = Debug|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Release|x64.ActiveCfg = Release|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Release|x64.Build.0 = Release|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Release|x86.ActiveCfg = Release|Any CPU
+		{88139A18-2876-40C7-AE65-7EC512C356FB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
