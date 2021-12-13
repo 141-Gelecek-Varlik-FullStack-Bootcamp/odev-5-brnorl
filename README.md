@@ -1,9 +1,12 @@
-#Layered Architecture Assignment -3
+# Bootcamp Assignment -4
+## Cache işlemleri
+#### UserCache ve IUserCache classları oluşturuldu.
+#### MemoryCacheEntryOptions ile cache ayarlamaları yapıldı.
+#### Controller için Login kontrollerinde cache kullanıldı.
 
 
-###For User
-Login-Create-Update-Delete-List
-###For Product
-Create-Update-Delete-List
 
-######This repository is created for Gelecek-Varlik-FullStack-Bootcamp.
+
+
+
+###### This repository is created for Gelecek-Varlik-FullStack-Bootcamp.
