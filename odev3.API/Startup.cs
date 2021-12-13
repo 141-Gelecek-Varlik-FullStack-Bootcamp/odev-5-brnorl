@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using odev3.API.Cache;
 using odev3.API.Infrastructure;
 using odev3.Service.Product;
 using odev3.Service.User;
@@ -35,9 +37,13 @@ namespace odev3.API
             //AutoMapper added.
             services.AddSingleton(mapper);
 
+
             //Services Added.
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProductService, ProductService>();
+
+            services.AddMemoryCache();
+            services.AddSingleton<IUserCache, UserCache>();
 
 
             services.AddControllers();
