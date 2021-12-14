@@ -5,6 +5,7 @@ using odev3.Service.User;
 using odev3.Models.User;
 using Microsoft.Extensions.Caching.Memory;
 using odev3.API.Cache;
+using odev3.API.Attribute;
 
 namespace odev3.API.Controllers
 {
@@ -23,19 +24,12 @@ namespace odev3.API.Controllers
             mapper = _mapper;
             userCache = _userCache;
         }
+
         [HttpGet]
-        public UserListModel<UserViewModel> Get()
-        {//kullanıcıları listelemek için giriş yapılması gereklidir.
-            var user = new LoginUserModel();
-            user = userCache.GetCachedUser();
-            //cache'deki veri boş ise giriş yapılmamış demektir.
-            if (user is null)
-            {//giriş yapılmamış ise boş liste döner.
-                var users = new UserListModel<UserViewModel>();
-                return users;
-            }
-            //giriş kontrolünden sonra tam liste döner.
-            return userService.Get();
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult Get()
+        {
+            return Ok(userService.Get());
         }
 
         [HttpPost]
@@ -50,30 +44,32 @@ namespace odev3.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public bool LoginUser([FromBody] LoginUserModel user)
+        public IActionResult LoginUser([FromBody] LoginUserModel user)
         {
             if (userService.Login(user))//login işlemi başarılı ise 
             {//doğrulanan veri cachelenmek üzere ilgili fonksiyona gönderilir
                 userCache.Cache(user);
-                return true;
+                return Ok("Login success.");
             }
             //login işlemi başarısız ise zaten yetki dönmez.
-            return false;
+            return BadRequest("Invalid email or password.");
 
         }
 
         [HttpPut]
         [Route("update")]
-        public bool UpdateUser([FromBody] UpdateUserModel updatedUser, int id)
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult UpdateUser([FromBody] UpdateUserModel updatedUser, int id)
         {
-            return userService.Update(updatedUser, id);
+            return Ok(userService.Update(updatedUser, id));
         }
 
         [HttpDelete]
         [Route("delete")]
-        public bool DeleteUser(int id)
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult DeleteUser(int id)
         {
-            return userService.Delete(id);
+            return Ok(userService.Delete(id));
         }
 
 

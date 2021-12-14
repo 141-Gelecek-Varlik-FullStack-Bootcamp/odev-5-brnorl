@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using odev3.API.Attribute;
 using odev3.API.Cache;
 using odev3.API.Infrastructure;
 using odev3.Service.Product;
@@ -41,9 +42,11 @@ namespace odev3.API
             //Services Added.
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProductService, ProductService>();
-
+            //Cache servisleri
             services.AddMemoryCache();
             services.AddSingleton<IUserCache, UserCache>();
+            //Loginfilter servisleri
+            services.AddScoped<LoginFilter>();
 
 
             services.AddControllers();

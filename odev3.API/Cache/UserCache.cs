@@ -18,7 +18,7 @@ namespace odev3.API.Cache
             {//cache için ayarlamalar, cache'de tutulacak verinin yaşam süresi ayarlanır.
                 SlidingExpiration = TimeSpan.FromSeconds(10),
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(20),
-
+                //Denemek için 10sn aralıklarla ayarlamalar yaptım...Özelleştirilebilir.
             };
             //Key,alınan model ve ayarlarla beraber Set işlemi
             memoryCache.Set<LoginUserModel>(KEY, user, option);

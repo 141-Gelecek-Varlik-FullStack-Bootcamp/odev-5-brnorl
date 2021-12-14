@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using odev3.API.Attribute;
 using odev3.DB.Models;
 using odev3.Models.Product;
 using odev3.Service.Product;
@@ -21,33 +22,35 @@ namespace odev3.API.Controllers
         }
 
         [HttpGet]
-        public ProductListModel<ProductViewModel> Get()
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult Get()
         {
-            return productService.Get();
+            return Ok(productService.Get());
         }
 
         [HttpPost]
         [Route("registerProduct")]
-        public bool CreateProduct([FromBody] CreateProductModel newProduct)
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult CreateProduct([FromBody] CreateProductModel newProduct)
         {
-            bool result;
             var data = mapper.Map<Product>(newProduct);
-            result = productService.Insert(data);
-            return result;
+            return Ok(productService.Insert(data));
         }
         [HttpPut]
         [Route("updateProduct")]
-        public bool UpdateProduct([FromBody] UpdateProductModel updatedProduct, int id)
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult UpdateProduct([FromBody] UpdateProductModel updatedProduct, int id)
         {
 
-            return productService.Update(updatedProduct, id);
+            return Ok(productService.Update(updatedProduct, id));
         }
 
         [HttpDelete]
         [Route("deleteProduct")]
-        public bool DeleteProduct(int id)
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult DeleteProduct(int id)
         {
-            return productService.Delete(id);
+            return Ok(productService.Delete(id));
         }
 
 
