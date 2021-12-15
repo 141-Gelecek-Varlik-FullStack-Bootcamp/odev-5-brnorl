@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using odev3.DB.Models;
+using odev3.Models.Pagination;
 using odev3.Models.User;
 namespace odev3.Service.User
 {
@@ -88,6 +89,21 @@ namespace odev3.Service.User
                 result = true;
             }
             return result;
+        }
+        public PagedResponse<List<UserViewModel>> GetPaged(int pageNumber, int pageSize)
+        {//kullanıcı listesi alınır.
+            var users = Get().userList;
+            //listelenmiş verinin hessaplamaları yapılır.
+            var pagedData = users
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+            var response = new PagedResponse<List<UserViewModel>>(pagedData, pageNumber, pageSize);
+            //response içine kullanıcının isteğine göre toplam kullanıcı sayısı ve toplam sayfa işlenir
+            response.TotalRecords = users.Count<UserViewModel>();
+            response.TotalPages = response.TotalRecords / pageSize;
+
+            return response;
         }
 
     }

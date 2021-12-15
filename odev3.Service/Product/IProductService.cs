@@ -12,6 +12,8 @@ namespace odev3.Service.Product
         public bool Update(UpdateProductModel updatedProduct, int id);
         public bool Delete(int id);
         public PagedResponse<List<ProductViewModel>> GetPaged(int pageNumber, int pageSize);
+        public List<ProductViewModel> GetFilteredProducts(int maxPrice, int minPrice);
+
 
 
     }

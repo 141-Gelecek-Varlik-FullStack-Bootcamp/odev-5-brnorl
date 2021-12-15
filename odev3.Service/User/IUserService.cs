@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using odev3.Models.Pagination;
 using odev3.Models.User;
 
 namespace odev3.Service.User
@@ -13,5 +14,7 @@ namespace odev3.Service.User
         public bool Update(UpdateUserModel updatedUser, int id);
 
         public bool Delete(int id);
+        public PagedResponse<List<UserViewModel>> GetPaged(int pageNumber, int pageSize);
+
     }
 }

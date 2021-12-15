@@ -94,5 +94,11 @@ namespace odev3.Service.Product
             response.TotalPages = response.TotalRecords / pageSize;
             return response;
         }
+
+        public List<ProductViewModel> GetFilteredProducts(int maxPrice, int minPrice)
+        {//ürünlerin fiyat aralığını alıp listeleme yaptım.
+            var result = Get().productList.FindAll(o => o.Price >= minPrice && o.Price <= maxPrice);
+            return result;
+        }
     }
 }
