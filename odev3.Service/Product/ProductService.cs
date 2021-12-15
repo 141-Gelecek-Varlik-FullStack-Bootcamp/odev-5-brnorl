@@ -100,5 +100,29 @@ namespace odev3.Service.Product
             var result = Get().productList.FindAll(o => o.Price >= minPrice && o.Price <= maxPrice);
             return result;
         }
+
+        public List<ProductViewModel> GetSortedProducts(string sortingParameter)
+        {//ürünlerin listesi alınıp istenilen parametreye göre sıralama yapılır.
+            var products = Get().productList;
+            switch (sortingParameter)
+            {
+                case "Price":
+                    products = products.OrderBy(p => p.Price).ToList();
+                    break;
+                case "Name":
+                    products = products.OrderBy(p => p.Name).ToList();
+                    break;
+                case "Id":
+                    products = products.OrderBy(p => p.Id).ToList();
+                    break;
+                case "DisplayName":
+                    products = products.OrderBy(p => p.DisplayName).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(p => p.DisplayName).ToList();
+                    break;
+            }
+            return products;
+        }
     }
 }

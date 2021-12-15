@@ -14,6 +14,7 @@ namespace odev3.Service.Product
         public PagedResponse<List<ProductViewModel>> GetPaged(int pageNumber, int pageSize);
         public List<ProductViewModel> GetFilteredProducts(int maxPrice, int minPrice);
 
+        public List<ProductViewModel> GetSortedProducts(string sortingParameter);
 
 
     }
