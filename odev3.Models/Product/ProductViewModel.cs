@@ -8,6 +8,8 @@ namespace odev3.Models.Product
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public decimal Price { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
 
 
     }

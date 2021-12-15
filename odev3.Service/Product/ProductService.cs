@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using odev3.DB.Models;
+using odev3.Models.Pagination;
 using odev3.Models.Product;
 
 namespace odev3.Service.Product
@@ -76,6 +77,22 @@ namespace odev3.Service.Product
                 result = true;
             }
             return result;
+        }
+
+        public PagedResponse<List<ProductViewModel>> GetPaged(int pageNumber, int pageSize)
+        {//ilk olarak ürün listesi alınır.
+            var products = Get().productList;
+            //ürün listesi sayfalanıp pagedData haline getirilir
+            var pagedData = products
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+            var response = new PagedResponse<List<ProductViewModel>>(pagedData, pageNumber, pageSize);
+            //response içine kullanıcının isteğine göre toplam ürün sayısı ve toplam sayfa işlenir
+            response.TotalRecords = products.Count<ProductViewModel>();
+            response.TotalPages = response.TotalRecords / pageSize;
+            return response;
         }
     }
 }
