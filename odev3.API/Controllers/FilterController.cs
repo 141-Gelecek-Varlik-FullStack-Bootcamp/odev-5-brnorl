@@ -20,11 +20,12 @@ namespace odev3.API.Controllers
         [Route("Product")]
         public IActionResult GetFilteredProduct([FromQuery] ProductParameters productParameters)
         {//controller içinde sadece basit kontrolü yaptım.
+            var list = productService.Get().productList;
             if (productParameters.minPrice > productParameters.maxPrice)
             {
                 return BadRequest("Invalid values.");
             }
-            return Ok(productService.GetFilteredProducts(productParameters.maxPrice, productParameters.minPrice));
+            return Ok(productService.GetFilteredProducts(productParameters.maxPrice, productParameters.minPrice, list));
         }
 
     }

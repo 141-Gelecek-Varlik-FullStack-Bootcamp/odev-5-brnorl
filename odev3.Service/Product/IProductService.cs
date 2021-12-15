@@ -11,10 +11,11 @@ namespace odev3.Service.Product
         public ProductListModel<ProductViewModel> Get();
         public bool Update(UpdateProductModel updatedProduct, int id);
         public bool Delete(int id);
-        public PagedResponse<List<ProductViewModel>> GetPaged(int pageNumber, int pageSize);
-        public List<ProductViewModel> GetFilteredProducts(int maxPrice, int minPrice);
+        public PagedResponse<List<ProductViewModel>> GetPaged(int pageNumber, int pageSize, List<ProductViewModel> products);
+        public List<ProductViewModel> GetFilteredProducts(int maxPrice, int minPrice, List<ProductViewModel> products);
 
         public List<ProductViewModel> GetSortedProducts(string sortingParameter);
+        public PagedResponse<List<ProductViewModel>> GetFPS(string sortingParameter, int maxPrice, int minPrice, int pageNumber, int pageSize);
 
 
     }

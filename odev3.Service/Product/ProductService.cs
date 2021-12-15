@@ -79,9 +79,8 @@ namespace odev3.Service.Product
             return result;
         }
 
-        public PagedResponse<List<ProductViewModel>> GetPaged(int pageNumber, int pageSize)
+        public PagedResponse<List<ProductViewModel>> GetPaged(int pageNumber, int pageSize, List<ProductViewModel> products)
         {//ilk olarak ürün listesi alınır.
-            var products = Get().productList;
             //ürün listesi sayfalanıp pagedData haline getirilir
             var pagedData = products
             .Skip((pageNumber - 1) * pageSize)
@@ -95,9 +94,9 @@ namespace odev3.Service.Product
             return response;
         }
 
-        public List<ProductViewModel> GetFilteredProducts(int maxPrice, int minPrice)
+        public List<ProductViewModel> GetFilteredProducts(int maxPrice, int minPrice, List<ProductViewModel> products)
         {//ürünlerin fiyat aralığını alıp listeleme yaptım.
-            var result = Get().productList.FindAll(o => o.Price >= minPrice && o.Price <= maxPrice);
+            var result = products.FindAll(o => o.Price >= minPrice && o.Price <= maxPrice);
             return result;
         }
 
@@ -123,6 +122,13 @@ namespace odev3.Service.Product
                     break;
             }
             return products;
+        }
+        public PagedResponse<List<ProductViewModel>> GetFPS(string sortingParameter, int maxPrice, int minPrice, int pageNumber, int pageSize)
+        {
+            var sortedList = GetSortedProducts(sortingParameter);
+            var list = GetFilteredProducts(maxPrice, minPrice, sortedList);
+            return GetPaged(pageNumber, pageSize, list);
+
         }
     }
 }

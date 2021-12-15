@@ -29,7 +29,8 @@ namespace odev3.API.Controllers
         [Route("Product")]
         public IActionResult GetProductPage([FromQuery] PaginationFilter filter)
         {
-            return Ok(productService.GetPaged(filter.PageNumber, filter.PageSize));
+            var list = productService.Get().productList;
+            return Ok(productService.GetPaged(filter.PageNumber, filter.PageSize, list));
         }
         [HttpGet]
         [Route("User")]
