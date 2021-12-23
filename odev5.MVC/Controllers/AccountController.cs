@@ -38,14 +38,14 @@ namespace odev5.MVC.Controllers
         [Route("account")]
         [HttpPost]
         public IActionResult Login(string username, string password)
-        {
+        {//login kontrolü
             LoginUserModel user = new LoginUserModel();
             user.Email = username;
             user.Password = password;
             var userlist = userService.Get().userList;
             var productlist = productService.Get().productList;
 
-
+//login işlemi geçerli sonuç verirse veriler listelenir
             if (userService.Login(user))
             {
                 ViewBag.userList = userlist;
@@ -55,7 +55,7 @@ namespace odev5.MVC.Controllers
                 return View("Success");
             }
             else
-            {
+            {//geçersiz sonuçta uyarı döner
                 ViewBag.error = "Invalid Account";
                 return View("Index");
             }
@@ -71,7 +71,7 @@ namespace odev5.MVC.Controllers
             ViewBag.productList = productlist;
             var user = userCache.GetCachedUser();
             if (userService.Insert(data))
-            {
+            {// if içinde servis çağırılıp işlem sonucu geri alınır, işlem sonucuna göre uyarı dönülür
                 ViewBag.info = "Insert Success";
             }
             else
@@ -144,7 +144,7 @@ namespace odev5.MVC.Controllers
         [Route("account")]
         [HttpGet]
         public IActionResult Logout()
-        {
+        {// çıkış işlemi
             HttpContext.Session.Remove("username");
             return RedirectToAction("Index");
         }
