@@ -6,11 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.28" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\odev3.Models\odev3.Models.csproj" />
     <ProjectReference Include="..\odev3.DB\odev3.DB.csproj" />
+    <ProjectReference Include="..\odev5.Jobs\odev5.Jobs.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,6 +6,8 @@ using odev3.Models.User;
 using Microsoft.Extensions.Caching.Memory;
 using odev3.API.Cache;
 using odev3.API.Attribute;
+using odev3.Models.Mail;
+using odev3.API.MailService;
 
 namespace odev3.API.Controllers
 {
@@ -17,12 +19,14 @@ namespace odev3.API.Controllers
         private readonly IUserService userService;
         private readonly IMapper mapper;
         private readonly IUserCache userCache;
+        private readonly ISendMail sendMail;
 
-        public UserController(IUserService _userService, IMapper _mapper, IUserCache _userCache)
+        public UserController(IUserService _userService, IMapper _mapper, IUserCache _userCache, ISendMail _sendMail)
         {
             userService = _userService;
             mapper = _mapper;
             userCache = _userCache;
+            sendMail = _sendMail;
         }
 
         [HttpGet]
@@ -39,6 +43,10 @@ namespace odev3.API.Controllers
             bool result;
             var data = mapper.Map<odev3.DB.Models.User>(newUser);
             result = userService.Insert(data);
+            EmailModel email = new EmailModel();
+            email.To = newUser.Email;
+            email.Comment = "Welcome";
+            sendMail.SendMailToUser(email);
             return result;
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using odev3.API.Attribute;
 using odev3.API.Cache;
 using odev3.API.Infrastructure;
+using odev3.API.MailService;
 using odev3.Service.Product;
 using odev3.Service.User;
 
@@ -48,6 +50,7 @@ namespace odev3.API
             //Loginfilter servisleri
             services.AddScoped<LoginFilter>();
 
+            services.AddSingleton<ISendMail, SendMail>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -55,12 +58,14 @@ namespace odev3.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "odev3.API", Version = "v1" });
             });
         }
-
+        //Server=.\\SQLEXPRESS;Database=Proje;Trusted_Connection=True;
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
+                GlobalConfiguration.Configuration
+            .UseSqlServerStorage("Server=.\\SQLEXPRESS;Database=Proje;Trusted_Connection=True");
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "odev3.API v1"));

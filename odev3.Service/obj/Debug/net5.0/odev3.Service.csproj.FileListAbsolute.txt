@@ -15,3 +15,9 @@ C:\Users\user\Desktop\bootcamp3\odev3.Service\obj\Debug\net5.0\odev3.Service.csp
 C:\Users\user\Desktop\bootcamp3\odev3.Service\obj\Debug\net5.0\odev3.Service.dll
 C:\Users\user\Desktop\bootcamp3\odev3.Service\obj\Debug\net5.0\ref\odev3.Service.dll
 C:\Users\user\Desktop\bootcamp3\odev3.Service\obj\Debug\net5.0\odev3.Service.pdb
+C:\Users\user\Desktop\bootcamp3\odev3.Service\bin\Debug\net5.0\odev5.Jobs.deps.json
+C:\Users\user\Desktop\bootcamp3\odev3.Service\bin\Debug\net5.0\odev5.Jobs.runtimeconfig.json
+C:\Users\user\Desktop\bootcamp3\odev3.Service\bin\Debug\net5.0\odev5.Jobs.runtimeconfig.dev.json
+C:\Users\user\Desktop\bootcamp3\odev3.Service\bin\Debug\net5.0\odev5.Jobs.exe
+C:\Users\user\Desktop\bootcamp3\odev3.Service\bin\Debug\net5.0\odev5.Jobs.dll
+C:\Users\user\Desktop\bootcamp3\odev3.Service\bin\Debug\net5.0\odev5.Jobs.pdb
